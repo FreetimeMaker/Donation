@@ -3,9 +3,19 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/home/j/Android KeyStore/KeyStore.jks')
+            storePassword 'KKKKKK'
+            keyAlias 'Alle'
+            keyPassword 'KKKKKK'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
     namespace 'com.freetime.donation'
     compileSdk 35
-    buildToolsVersion "36.0.0"
+    buildToolsVersion '33.0.0'
 
     defaultConfig {
         applicationId "com.freetime.donation"
@@ -15,6 +25,7 @@ android {
         versionName '1.0.0'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
