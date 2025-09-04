@@ -71,5 +71,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(DonateActivity.this, TronActivity.class);
             startActivity(intent);
         });
+        
+        Button btnDonateLTC = findViewById(R.id.btnDonateLTC);
+        btnDonateLTC.setOnClickListener(v -> {
+            Intent intent = new Intent(DonateActivity.this, LTC_Activity.class);
+            startActivity(intent);
+        });
     }
 }
