@@ -1,6 +1,9 @@
 package com.freetime.donation;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,26 +63,37 @@ public class MainActivity extends AppCompatActivity {
         
         Button btnDonateSHIB = findViewById(R.id.btnDonateSHIB);
         btnDonateSHIB.setOnClickListener(v -> {
-            Intent intent = new Intent(DonateActivity.this, ShibActivity.class);
+            Intent intent = new Intent(MainActivity.this, ShibActivity.class);
             startActivity(intent);
         });
 
         Button btnDonateDOGE = findViewById(R.id.btnDonateDOGE);
         btnDonateDOGE.setOnClickListener(v -> {
-            Intent intent = new Intent(DonateActivity.this, DogeActivity.class);
+            Intent intent = new Intent(MainActivity.this, DogeActivity.class);
             startActivity(intent);
         });
 
         Button btnDonateTRON = findViewById(R.id.btnDonateTRON);
         btnDonateTRON.setOnClickListener(v -> {
-            Intent intent = new Intent(DonateActivity.this, TronActivity.class);
+            Intent intent = new Intent(MainActivity.this, TronActivity.class);
             startActivity(intent);
         });
         
         Button btnDonateLTC = findViewById(R.id.btnDonateLTC);
         btnDonateLTC.setOnClickListener(v -> {
-            Intent intent = new Intent(DonateActivity.this, LTC_Activity.class);
+            Intent intent = new Intent(MainActivity.this, LTC_Activity.class);
             startActivity(intent);
         });
+    }
+
+    private static String getAppVersionName(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pInfo = pm.getPackageInfo(context.getPackageName(), 0);
+            return pInfo.versionName; // z. B. "1.2.3"
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "0.0.0";
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.freetime.geoweather;
+package com.freetime.donation;
 
 import android.content.Intent;
 import android.os.Bundle;
