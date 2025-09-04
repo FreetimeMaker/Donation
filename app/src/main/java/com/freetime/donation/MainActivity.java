@@ -53,5 +53,23 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, USDC_Activity.class);
             startActivity(intent);
         });
+        
+        Button btnDonateSHIB = findViewById(R.id.btnDonateSHIB);
+        btnDonateSHIB.setOnClickListener(v -> {
+            Intent intent = new Intent(DonateActivity.this, ShibActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnDonateDOGE = findViewById(R.id.btnDonateDOGE);
+        btnDonateDOGE.setOnClickListener(v -> {
+            Intent intent = new Intent(DonateActivity.this, DogeActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnDonateTRON = findViewById(R.id.btnDonateTRON);
+        btnDonateTRON.setOnClickListener(v -> {
+            Intent intent = new Intent(DonateActivity.this, TronActivity.class);
+            startActivity(intent);
+        });
     }
 }
